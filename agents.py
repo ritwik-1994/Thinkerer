@@ -20,7 +20,7 @@ from pytube import YouTube
 os.environ["SERPER_API_KEY"] = "d8c0597ad49019f1bbc962b915bddc32d96be5a8"
 os.environ["GOOGLE_API_KEY"] = "UCg60QRUSvLZMF4zHv2ajBqA"
 os.environ["GOOGLE_CSE_ID"] = "c691bdf65d73047ec"
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 app = Flask(__name__)
 CORS(app)
 YOUTUBE_API_KEY = "AIzaSyBZnkNzTjH-xsLjpZcQokhNrxwgMzc8Hns"
