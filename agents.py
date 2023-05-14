@@ -20,7 +20,7 @@ from pytube import YouTube
 os.environ["SERPER_API_KEY"] = "d8c0597ad49019f1bbc962b915bddc32d96be5a8"
 os.environ["GOOGLE_API_KEY"] = "UCg60QRUSvLZMF4zHv2ajBqA"
 os.environ["GOOGLE_CSE_ID"] = "c691bdf65d73047ec"
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "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"
 app = Flask(__name__)
 CORS(app)
 YOUTUBE_API_KEY = "AIzaSyBZnkNzTjH-xsLjpZcQokhNrxwgMzc8Hns"
@@ -53,7 +53,7 @@ def trigger_function(username, category):
 	tools = load_tools(["google-serper"], llm=llm1)
 	
 
-	start = time.time()
+
 	vs, summaries = get_latest_three_videos(username)
 	comment_list = []
 	for v in vs:
@@ -85,10 +85,8 @@ def trigger_function(username, category):
 
 	summaries = summary_dict
 	feedback = comment_feedback_dict
-	end = time.time()
-	print(end-start)
-	feedback = {'feedback_1': "Based on the comments, it seems like viewers are interested in the cost and capabilities of the Claude-v1-100k model. The YouTuber could create a follow-up video that dives deeper into the cost structure of using the model and explores its capabilities in more detail, including how it compares to other models like GPT4. Additionally, the YouTuber could address some of the technical issues mentioned in the comments, such as broken links and code that doesn't work.", 'feedback_2': 'Based on the comments, it seems like viewers are interested in learning more about the LeMUR API and how to use it. Therefore, the YouTuber could consider creating a tutorial video on how to access and utilize the LeMUR API in a project. This would provide value to viewers who are interested in machine learning and want to learn more about this specific API. Additionally, the YouTuber could consider showcasing some examples of projects that have successfully utilized the LeMUR API to inspire and motivate viewers to try it out themselves.', 'feedback_3': 'Based on the comments, it seems like viewers are interested in a more in-depth comparison of different vector databases, including their pros and cons, as well as their use cases and potential for generating vectors for multimodal data. Viewers also expressed interest in learning more about how to use vector databases for long-term memory in LLMs, as well as how indexes work and why vector databases are called databases. Therefore, a relevant and concise suggestion for the YouTuber for their next video would be to create a comprehensive guide to vector databases, covering topics such as their features, use cases, and limitations, as well as providing practical examples and tutorials on how to use them effectively. Additionally, the video could explore the latest trends and developments in vector databases, including new tools and techniques for generating and storing vectors, and provide insights into the future of this technology.'}
-	summaries = {'summary_1': 'Anthropic has launched a language model with a 100K context window, allowing for the analysis of entire books or long documents. The model can digest, summarize, and explain technical documents and perform complex tasks. The article discusses using the model to analyze podcasts and provide specific information based on questions asked. The accuracy of the model is attributed to the Assembly AI API. The paper introduces a new 100K context window model that can be used to avoid the need for custom Vector databases for smaller datasets. Links to the blog post and Assembly AI API are provided for further information.','summary_2': 'Assembly AI has launched Lemur, a framework for transcribing speech using large language models. It can process up to 10 hours of audio content and includes intelligent segmentation, a fast Vector database, and reasoning steps. Lemur is accessible through a standard API and can generate task lists and answer questions about audio recordings. Early access is available by signing up to the waitlist.','summary_3': 'Vector databases are becoming popular for storing unstructured data such as images, videos, and audio. They use algorithms to calculate numerical representations of the data, which are indexed and stored for fast retrieval and similarity search. They are useful for equipping language models with long-term memory, semantic search, similarity search for images, audio, or video data, and as a ranking and recommendation engine for online retailers. There are several vector databases available, including Pinecone, VV8, Chroma, Redis, CoolTrans, Milvus, and Vespa AI. The video provides an overview of vector databases and their applications.'}
+
+
 	
 	video_ideas = f"""
 	Summary of Last 3 Videos: {summaries['summary_1']} \n {summaries['summary_2']} \n {summaries['summary_3']}
@@ -130,7 +128,7 @@ def trigger_function(username, category):
 		content_research_output =youtube_content_researcher.run(f"""Based on the following inputs: Ideas: {video_ideas} \n Online Research: {internet_generated_ideas} \nFor Youtube Channel in Niche: {Category}.\nGenerate a new original idea based on current events not present in the Ideas object but inspired by it and use it to create new video content which will make Youtube videos more engaging for viewers.
 		The format of the Final answer should in the following:
 		"
-		[[Thumbnail Prompt:  A Simple Detailed Prompt With At Most One Person To Generate A High Resolution Image, No Text mentions],
+		[[Thumbnail Prompt:  A Simple Detailed Prompt With At Most One Person To Generate A High Resolution Image, No Text mentions : Example_Prompt->"A satanic wolf, aggressive looking, wild, brutal, centered, empty background, high detail, anime style, 2d, line art, black white and blue"],
 		[Video Title: A Catchy and SEO optimised Youtube Video Title Which Maximises For Views And Likes Of The Video],
 		[Video Description: A Detailed Video Description Which Maximises For Views And Likes Of The Video ],
 		[Video_Script:A Comprehensive Scene-by-Scene Script Designed to Maximize Viewer Engagement and Watch Time]]

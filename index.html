@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnail Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>ContentMate</h1> 
+    <h3>Creating Content Together</h3>
+    <section id="input-section">
+        <h2>Enter Details</h2>
+        <form id="input-form">
+            <label for="username">YouTube Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="category">YouTube Channel Category:</label>
+            <input type="text" id="category" name="category" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <section id="output-section">
+        <section id="suggested-thumbnails">
+            <h2>Suggested Thumbnails</h2>
+            <div id="thumbnails-container"></div>
+        </section>
+        <section id="title-and-description">
+            <h2>Title and Description</h2>
+            <div id="title-container"></div>
+            <div id="description-container"></div>
+        </section>
+        <section id="script-section">
+            <h2>Theatre Script Narration</h2>
+            <div id="script-container"></div>
+        </section>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>
